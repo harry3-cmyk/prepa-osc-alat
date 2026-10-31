@@ -1,7 +1,7 @@
 {
-  "name": "PrÃ©pa OSC Pilote ALAT",
-  "short_name": "PrÃ©pa ALAT",
-  "description": "EntraÃ®nement aux sÃ©lections OSC pilote de l'ALAT : CSO, SECMA Tours, simulateur SCM.",
+  "name": "Prépa OSC Pilote ALAT",
+  "short_name": "Prépa ALAT",
+  "description": "Entraînement aux sélections OSC pilote de l'ALAT : CSO, SECMA Tours, simulateur SCM.",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",
