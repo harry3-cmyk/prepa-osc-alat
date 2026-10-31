@@ -1,0 +1,17 @@
+{
+  "name": "PrÃ©pa OSC Pilote ALAT",
+  "short_name": "PrÃ©pa ALAT",
+  "description": "EntraÃ®nement aux sÃ©lections OSC pilote de l'ALAT : CSO, SECMA Tours, simulateur SCM.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A1016",
+  "theme_color": "#0D151D",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
