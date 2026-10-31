@@ -1,5 +1,5 @@
 /* Service worker : l'appli s'ouvre même sans réseau. Le fil veille.json passe toujours par le réseau d'abord. */
-const V = 'prepa-alat-20261031231243';
+const V = 'prepa-alat-20261031232217';
 const SHELL = ['./', 'index.html', 'data.js', 'core.js', 'gen.js', 'sim.js', 'views.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
