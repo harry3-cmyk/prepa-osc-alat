@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Prépa ALAT">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>Prépa OSC Pilote ALAT</title>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>Prépa OSC Pilote ALAT</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Saira+Condensed:wght@600;700&display=swap">
@@ -59,8 +59,8 @@ p { margin: 0; }
 .eyebrow.ok { color: var(--ok); } .eyebrow.ko { color: var(--ko); }
 
 /* ----- Coque ----- */
-#app { height: 100%; display: grid; grid-template-rows: auto 1fr auto; }
-.top { display: flex; align-items: center; gap: 10px; padding: 12px var(--gut-r) 12px var(--gut-l); background: var(--bg-2); border-bottom: 1px solid var(--line); }
+#app { position: fixed; inset: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.top { display: flex; align-items: center; gap: 10px; padding: calc(16px + env(safe-area-inset-top, 0px)) var(--gut-r) 12px var(--gut-l); background: var(--bg-2); border-bottom: 1px solid var(--line); }
 .top .tt { flex: 1; min-width: 0; }
 .top h1 { font: 700 26px/1 var(--display); text-transform: uppercase; letter-spacing: .03em; margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .top .eyebrow { color: var(--accent); }
@@ -71,7 +71,7 @@ svg path, svg line { vector-effect: non-scaling-stroke; }
 .top .badge { font: 600 11px var(--mono); color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 3px 8px; }
 #view { overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 16px var(--gut-r) 28px var(--gut-l); overscroll-behavior: contain; }
 .vin { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-.dock { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--bg-2); border-top: 1px solid var(--line); padding: 6px var(--gut-r) 6px var(--gut-l); }
+.dock { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--bg-2); border-top: 1px solid var(--line); padding: 6px var(--gut-r) calc(6px + env(safe-area-inset-bottom, 0px)) var(--gut-l); }
 .dock button { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 0 4px; border-radius: 12px; color: var(--muted); font: 600 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .dock svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .dock button[aria-current="page"] { color: var(--accent); }
@@ -236,9 +236,9 @@ b.big { font-size: 30px; display: block; }
 .links { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
 
 /* ----- Épreuve en cours ----- */
-#runner { position: fixed; inset: 0; z-index: 50; background: var(--bg); padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
-.rn { height: 100%; display: flex; flex-direction: column; position: relative; }
-.rn-top { display: flex; align-items: center; gap: 10px; padding: 10px var(--gut-r) 10px var(--gut-l); background: var(--bg-2); border-bottom: 1px solid var(--line); }
+#runner { position: fixed; inset: 0; z-index: 50; background: var(--bg); }
+.rn { height: 100%; display: flex; flex-direction: column; position: relative; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.rn-top { display: flex; align-items: center; gap: 10px; padding: calc(12px + env(safe-area-inset-top, 0px)) var(--gut-r) 10px var(--gut-l); background: var(--bg-2); border-bottom: 1px solid var(--line); }
 .icon-btn { width: 38px; height: 38px; border-radius: 10px; background: var(--surface-2); display: grid; place-items: center; flex: none; }
 .icon-btn svg { width: 18px; height: 18px; }
 .rn-t { flex: 1; min-width: 0; } .rn-t b { font: 700 19px/1.1 var(--display); text-transform: uppercase; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
