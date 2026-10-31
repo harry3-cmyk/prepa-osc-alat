@@ -1,5 +1,5 @@
-/* Service worker : l'appli s'ouvre même sans réseau. Le fil veille.json passe toujours par le réseau d'abord. */
-const V = 'prepa-alat-20261031232217';
+/* Service worker : l'appli charge toujours la dernière version en ligne et s'ouvre quand même sans réseau. */
+const V = 'prepa-alat-20261031233124';
 const SHELL = ['./', 'index.html', 'data.js', 'core.js', 'gen.js', 'sim.js', 'views.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
@@ -22,10 +22,15 @@ self.addEventListener('fetch', e => {
     return;
   }
   if (url.origin === location.origin) {
-    e.respondWith(caches.match(req, { ignoreSearch: true }).then(hit => hit || fetch(req).then(r => {
+    /* Réseau d'abord (dernière version publiée), cache si pas de réseau ou réseau trop lent */
+    const net = new Promise((resolve, reject) => {
+      const t = setTimeout(() => reject(new Error('lent')), 4000);
+      fetch(req, { cache: 'no-cache' }).then(r => { clearTimeout(t); resolve(r); }, err => { clearTimeout(t); reject(err); });
+    });
+    e.respondWith(net.then(r => {
       if (r.ok) { const cp = r.clone(); caches.open(V).then(c => c.put(req, cp)); }
       return r;
-    }).catch(() => caches.match('index.html'))));
+    }).catch(() => caches.match(req, { ignoreSearch: true }).then(hit => hit || caches.match('index.html'))));
     return;
   }
   if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
