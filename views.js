@@ -8,11 +8,11 @@ const ICON = {
 };
 
 const TESTS = {
-  verbal: { code: 'VB', name: 'Verbal', grp: 'cso', n: 31, time: 480, gen: Gen.verbal,
+  verbal: { code: 'VB', name: 'Verbal', grp: 'cso', n: 31, time: 480, gen: Gen.verbal, fresh: true,
     desc: 'Synonymes, contraires, intrus et définitions.',
     real: '31 questions en 8 minutes, environ 15 secondes par question. Le seul sous-test du TAMI-C qui ne soit pas entièrement aléatoire.',
     tips: ['Les leurres sont souvent des paronymes (mots qui se ressemblent) : lis le mot en entier.', 'Si tu hésites entre deux réponses, cherche le contraire du mot : il élimine souvent un leurre.', 'Ne bloque pas plus de 20 secondes : passe et avance.'] },
-  maths_c: { code: 'MA', name: 'Mathématiques', grp: 'cso', n: 26, time: 1080, gen: Gen.mathsCSO,
+  maths_c: { code: 'MA', name: 'Mathématiques', grp: 'cso', n: 26, time: 1080, gen: Gen.mathsCSO, fresh: true,
     desc: 'Problèmes courts : pourcentages, vitesses, proportionnalité, moyennes, durées.',
     real: '26 problèmes en 18 minutes, 5 propositions par question, brouillon fourni.',
     tips: ['Pose le calcul au brouillon dès la lecture : les données inutiles sont rares.', 'Les pourcentages successifs se multiplient (×1,2 puis ×0,9), ils ne s\'additionnent pas.', 'Vitesse moyenne d\'un aller-retour : jamais la moyenne des deux vitesses.', 'Estime l\'ordre de grandeur avant de calculer : il élimine souvent 3 propositions.'] },
@@ -32,7 +32,7 @@ const TESTS = {
     desc: 'Trois cubes évoluent selon une logique : choisis le quatrième.',
     real: '25 questions en 14 minutes. Chaque face visible (dessus, gauche, droite) suit sa propre règle.',
     tips: ['Traite une face à la fois : dessus, puis gauche, puis droite.', 'Règles courantes : +1, +2, ×2, lettre suivante, flèche qui tourne de 45° ou 90°, quart coloré qui tourne, cycle de trois formes.', 'Élimine les propositions dès qu\'une face est fausse.'] },
-  anglais: { code: 'EN', name: 'Anglais', grp: 'cso', n: 150, time: 3300, gen: Gen.anglais, express: 20,
+  anglais: { code: 'EN', name: 'Anglais', grp: 'cso', n: 150, time: 3300, gen: Gen.anglais, fresh: true, express: 20,
     desc: 'Phrases à trous : grammaire courante, vocabulaire, prépositions, plus un peu de vocabulaire aéronautique.',
     real: '150 QCM en 55 minutes, environ 22 secondes par question, sans écoute.',
     tips: ['Les candidats décrivent un niveau « grammaire de collège-lycée » : temps, prépositions, comparatifs, modaux.', 'Un score faible peut entraîner un nouveau passage d\'anglais à Tours : vise large.', 'Lis la phrase entière : le mot-clé (since, for, yesterday) donne souvent le temps.'] },
@@ -40,11 +40,11 @@ const TESTS = {
     desc: 'Sprint de 2 minutes : additions, soustractions, tables, divisions. Saisie au pavé numérique.',
     real: 'Pas une épreuve à part entière, mais la base de toutes les épreuves de maths du CSO et de Tours.',
     tips: ['Vise 35 calculs justes en 2 minutes.', 'Une séance par jour suffit pour progresser vite.'] },
-  cultureg: { code: 'CG', name: 'Culture générale', grp: 'cso', n: 30, time: 600, gen: Gen.cultureG,
+  cultureg: { code: 'CG', name: 'Culture générale', grp: 'cso', n: 30, time: 600, gen: Gen.cultureG, fresh: true,
     desc: 'Histoire, géographie, institutions, sciences et opérations militaires récentes.',
     real: 'Pas une épreuve chronométrée du CSO, mais ces connaissances sont attendues en entretien (actualité, institutions, armée).',
     tips: ['L\'entretien officier peut porter sur l\'actualité de défense et les institutions.', 'Lis l\'actualité défense chaque semaine avant tes sélections.'] },
-  maths_t: { code: 'MT', name: 'Mathématiques SECMA', grp: 'tours', n: 20, time: 900, gen: Gen.mathsTours,
+  maths_t: { code: 'MT', name: 'Mathématiques SECMA', grp: 'tours', n: 20, time: 900, gen: Gen.mathsTours, fresh: true,
     desc: 'Calcul mental et problèmes courts : conversions, puissances, fractions, nœuds, pieds, consommation.',
     real: '20 questions en 15 minutes : 16 calculs puis 4 problèmes. Brouillon autorisé. Vitesse et précision sont évaluées.',
     tips: ['Un mauvais score peut être repris en entretien officier : on te demandera de justifier tes erreurs.', 'Mémorise : 1 kt = 1,852 km/h, 1 NM = 1 852 m, 1 ft ≈ 0,3 m, km/h ÷ 3,6 = m/s.', 'Exemple de problème cité : 20 % consommés puis 15 % du reste.'] },
@@ -60,11 +60,11 @@ const TESTS = {
     desc: 'Associe 15 formes à leur nom (lacs, rivières, baies…), puis retrouve les noms.',
     real: '3 phases de 15 formes : 4 minutes pour mémoriser, 2 min 30 pour restituer. Pas de point négatif.',
     tips: ['Réponds à tout : une réponse au hasard ne coûte rien.', 'Commence par les formes les plus faciles à retenir.', 'Crée une image mentale reliant la silhouette au nom.'] },
-  identif: { code: 'ID', name: 'Identification d\'aéronefs', grp: 'tours', n: 30, time: 900, gen: Gen.identif,
+  identif: { code: 'ID', name: 'Identification d\'aéronefs', grp: 'tours', n: 30, time: 900, gen: Gen.identif, fresh: true,
     desc: 'Reconnaître les aéronefs de l\'ALAT, de la Marine, de l\'armée de l\'air et de l\'étranger à partir de leurs caractéristiques.',
     real: '30 aéronefs en 15 minutes, présentés en photo le jour J. Ici, l\'entraînement porte sur les signes distinctifs.',
     tips: ['Complète avec des photos : cherche chaque nom en images et repère les signes cités ici.', 'Hélicoptères : nombre de pales, type d\'anticouple (rotor, Fenestron, coaxial, tandem), train, disposition de l\'équipage.', 'Les candidats citent aussi l\'armement (HOT, Mistral, canons de 20 et 30 mm).'] },
-  culture: { code: 'CA', name: 'Culture aéro et ALAT', grp: 'tours', n: 40, time: 900, gen: Gen.cultureAero, express: 15,
+  culture: { code: 'CA', name: 'Culture aéro et ALAT', grp: 'tours', n: 40, time: 900, gen: Gen.cultureAero, fresh: true, express: 15,
     desc: 'ALAT, régiments, hélicoptères, mécanique du vol, navigation, radio, grades et institutions.',
     real: '40 QCM en 15 minutes sur la culture aéronautique, militaire et ALAT.',
     tips: ['Thèmes cités par les candidats : portance, lois de Newton, radio, pionniers de l\'aviation, armements.', 'Révise les fiches ALAT pour les régiments et le parcours de formation.'] },
@@ -152,6 +152,7 @@ App.V.test = {
          <button class="btn ghost" data-act="run" data-id="${id}" data-m="train">Entraînement corrigé · sans chrono</button>`;
     return `<section class="detail">
       <p class="lead">${esc(T.desc)}</p>
+      ${T.gen ? `<p class="muted sm">${T.fresh ? 'Questions tirées parmi des milliers de combinaisons : l\'app évite de te reposer une question déjà vue.' : 'Chaque question est générée au hasard : aucune série ne se répète.'} Conseils détaillés dans Bilan, onglet Techniques.</p>` : ''}
       <div class="facts"><span class="eyebrow">Le jour J</span><p>${esc(T.real)}</p></div>
       <div class="actions">${btns}</div>
       <div class="statsbox">${st.n ? `<div class="sb-k"><div><b class="mono">${Math.round(st.avg)}%</b><span>moyenne récente</span></div><div><b class="mono">${st.best}%</b><span>meilleur</span></div><div><b class="mono">${st.n}</b><span>séries</span></div></div>${spark(st.series, 300, 60)}` : '<p class="muted">Aucune série pour l\'instant. Commence par une série express pour situer ton niveau.</p>'}</div>
@@ -447,9 +448,9 @@ App.V['bilan-home'] = {
   title: 'Bilan', eyebrow: 'Ma progression et les retours terrain',
   render: () => {
     const seg = Bilan.seg;
-    const tabs = [['prog', 'Progression'], ['veille', 'Retours'], ['parcours', 'Parcours']];
+    const tabs = [['prog', 'Progression'], ['veille', 'Retours'], ['parcours', 'Parcours'], ['tech', 'Techniques']];
     return `<div class="seg full" role="tablist">${tabs.map(([k, l]) => `<button role="tab" data-act="bseg" data-v="${k}" aria-pressed="${seg === k}">${l}</button>`).join('')}</div>
-      ${seg === 'prog' ? Bilan.prog() : seg === 'veille' ? Bilan.veille() : Bilan.parcours()}`;
+      ${seg === 'prog' ? Bilan.prog() : seg === 'veille' ? Bilan.veille() : seg === 'tech' ? Bilan.tech() : Bilan.parcours()}`;
   }
 };
 Act.bseg = t => { Bilan.seg = t.dataset.v; lsSet('oscp-seg', Bilan.seg); App.refresh(); };
@@ -514,6 +515,134 @@ Bilan.parcours = () => {
     <ol class="timeline">${steps.map(([t, d]) => `<li><b>${t}</b><p>${d}</p></li>`).join('')}</ol>
     <h3 class="sec">Sources consultées</h3>
     <ul class="links"><li><a href="https://www.devenez-pilote.fr/alat" target="_blank" rel="noopener">devenez-pilote.fr · ALAT</a></li><li><a href="https://pilotemilitaire.fr/alat/" target="_blank" rel="noopener">pilotemilitaire.fr · ALAT</a></li><li><a href="https://piloteready.fr/alat/epreuves" target="_blank" rel="noopener">piloteready.fr · épreuves ALAT</a></li><li><a href="https://forum.aeronet-fr.org/viewtopic.php?t=35343" target="_blank" rel="noopener">Forum Aéronet · Pilote ALAT</a></li><li><a href="https://www.sengager.fr" target="_blank" rel="noopener">sengager.fr · recrutement officiel de l'armée de Terre</a></li></ul>`;
+};
+
+/* ---------------- Techniques et astuces ---------------- */
+const TECH = [
+  ['Général', 'Méthode pour tous les tests chronométrés', [
+    'Calcule ton rythme cible : durée ÷ nombre de questions. Codage ≈ 3 s, attention ≈ 5 s, verbal ≈ 15 s, maths du CSO ≈ 40 s, cubes ≈ 35 s.',
+    'Une question qui te prend plus de deux fois ce temps : passe-la. Une question facile rapporte autant qu\'une difficile.',
+    'Demande au briefing s\'il y a des points négatifs. S\'il n\'y en a pas, réponds à tout avant la fin du chrono.',
+    'Lis toutes les propositions avant de cliquer : la première qui « semble » juste est souvent un leurre.',
+    'Après chaque série, ouvre « Revoir mes erreurs » : une erreur comprise ne se reproduit plus.',
+    'Alterne : conditions réelles une fois par semaine, express les autres jours. La régularité bat la quantité.']],
+  ['CSO', 'Calcul mental', [
+    'Décompose : 47 + 38 = 47 + 40 − 2 = 85. 83 − 27 = 83 − 30 + 3 = 56.',
+    'Complément à 100 : de 37 à 100, il manque 3 pour aller à 40, puis 60, soit 63.',
+    '× 5 = × 10 puis ÷ 2 (46 × 5 = 460 ÷ 2 = 230). × 25 = × 100 puis ÷ 4 (36 × 25 = 900). × 50 = × 100 puis ÷ 2.',
+    '× 9 = × 10 moins le nombre (37 × 9 = 370 − 37 = 333). × 11 : écarte les chiffres et place leur somme au milieu (43 × 11 = 473 ; 78 × 11 = 858 avec retenue).',
+    '× 4 = double du double ; ÷ 4 = moitié de la moitié ; ÷ 5 = × 2 puis ÷ 10.',
+    'Carrés : 23² = 20² + 2 × 20 × 3 + 3² = 400 + 120 + 9 = 529. Près de 50 : 48² = 2 500 − 200 + 4 = 2 304.',
+    'Nombres proches : 19 × 21 = 20² − 1 = 399.',
+    'Pourcentages : 10 % = ÷ 10, 5 % = moitié de 10 %, 25 % = ÷ 4, 20 % = ÷ 5, 75 % = trois quarts. Et 8 % de 50 = 50 % de 8 = 4.',
+    'À savoir par cœur : tables jusqu\'à 12 × 12, carrés jusqu\'à 25², puissances de 2 jusqu\'à 2¹⁰ = 1 024.',
+    'Un sprint de 2 minutes par jour suffit : vise 35 calculs justes.']],
+  ['CSO', 'Mathématiques (problèmes)', [
+    'Repère d\'abord ce qu\'on te demande et dans quelle unité (minutes ? km ? prix avant remise ?).',
+    'Estime l\'ordre de grandeur avant de calculer : il élimine souvent 3 propositions sur 5.',
+    'Pourcentages successifs : on multiplie les coefficients. +20 % puis −10 % = × 1,2 × 0,9 = × 1,08, soit +8 %.',
+    'Prix avant remise : on divise. Après −20 %, 80 € → 80 ÷ 0,8 = 100 €. Ajouter 20 % à 80 donne 96, ce qui est faux.',
+    'Vitesse moyenne d\'un aller-retour = 2 × v1 × v2 ÷ (v1 + v2), jamais la moyenne des deux vitesses.',
+    'Pense en kilomètres par minute : 60 km/h = 1 km/min, 120 km/h = 2 km/min, 180 km/h = 3 km/min.',
+    'Travail en commun : additionne les débits. 1/6 + 1/3 = 1/2, donc 2 heures ensemble.',
+    'Plus de personnes = moins de temps : personnes × temps = constante.',
+    '« Les 3/5 d\'un nombre valent 24 » : 24 ÷ 3 × 5 = 40.',
+    'Moyenne visée : total = moyenne × nombre de notes, puis soustrais ce que tu as déjà.',
+    'Horaires : additionne heures et minutes séparément, puis convertis (60 min = 1 h). 1 h 50 n\'est pas 1,5 h.']],
+  ['Tours', 'Mathématiques SECMA : conversions à connaître', [
+    '1 nœud = 1,852 km/h. 100 kt ≈ 185 km/h. À 60 kt, on fait 1 NM par minute ; à 120 kt, 2 NM/min.',
+    '1 mille nautique = 1 852 m. 1 pied ≈ 0,3 m : 1 000 ft ≈ 300 m, 10 000 ft ≈ 3 000 m.',
+    'km/h → m/s : ÷ 3,6 (72 km/h = 20 m/s). m/s → km/h : × 3,6.',
+    '0,1 h = 6 min ; 0,25 h = 15 min ; 0,75 h = 45 min ; 1,2 h = 72 min.',
+    'Fractions : 1/8 = 0,125 ; 3/8 = 0,375 ; 1/5 = 0,2 ; 1/3 ≈ 0,33 ; 2/3 ≈ 0,67.',
+    'Cercle : périmètre = 2 × π × rayon, avec π ≈ 3,14. Densité du carburant ≈ 0,8 : 100 L ≈ 80 kg.',
+    'Vent de face : vitesse sol = vitesse propre − vent. Vent arrière : on ajoute.',
+    'Brouillon autorisé : pose chaque problème en une ligne, avec les unités.']],
+  ['CSO', 'Verbal', [
+    'Les leurres sont souvent des paronymes, des mots qui se ressemblent : éminent / imminent, conjecture / conjoncture, martial / marital.',
+    'Racines utiles : poly = plusieurs, philo = aimer, miso = détester, chrono = temps, hydro = eau, hygro = humidité, anthropo = homme, magn- = grand, pusill- = petit.',
+    'Préfixes in-, im-, il-, a- = contraire (licite / illicite, typique / atypique).',
+    'Pour un contraire, trouve d\'abord un synonyme du mot, puis son opposé.',
+    'Analogie « A est à B ce que C est à ? » : identifie la relation (contraire, synonyme), puis applique-la à C.',
+    'Intrus : cherche le point commun (catégorie, nature du mot, sens). L\'intrus est souvent d\'une autre nature ou de sens opposé.',
+    '15 minutes de lecture par jour, en notant 3 mots inconnus, font plus que des heures de listes.']],
+  ['CSO', 'Codage', [
+    'Ne cherche pas à retenir toute la grille : trouve le mot, lis le code en deux paires (« 42 – 17 »), compare.',
+    'Les codes vont souvent par paires de mêmes deux premiers chiffres : vérifie toujours les deux derniers.',
+    'Pièges fréquents : deux chiffres inversés ou un seul chiffre changé.',
+    'Environ 3 secondes par question : ne reviens jamais en arrière.',
+    'Au fil du test, les mots reviennent : tu les mémorises naturellement, mais vérifie quand même.']],
+  ['CSO', 'Attention', [
+    'Compare par blocs de 3 ou 4 caractères, toujours de gauche à droite.',
+    'Pièges classiques : O et 0, I et 1, S et 5, B et 8, Z et 2, G et 6, m et n, deux caractères inversés, un accent, une lettre doublée.',
+    'Repère la série « modèle » (celle qui revient le plus), puis cherche l\'exception.',
+    '« Toutes identiques » est une vraie réponse, environ une fois sur cinq.']],
+  ['CSO', 'Rotation de damiers', [
+    'Choisis un repère unique (le rond, le triangle) et une case voisine : suis ce couple pendant la rotation.',
+    'Une rotation garde l\'ordre des cases dans le sens des aiguilles d\'une montre ; un miroir l\'inverse.',
+    'Quart de tour vers la droite : la ligne du haut devient la colonne de droite, lue de haut en bas.',
+    'Élimine d\'abord les miroirs, puis vérifie l\'angle sur ce qui reste.']],
+  ['CSO', 'Suites de cubes', [
+    'Une face à la fois : dessus, puis gauche, puis droite. Chaque face a sa propre règle.',
+    'Règles fréquentes : +1, +2, +3, × 2, lettre suivante, flèche qui tourne de 45° ou 90°, quart coloré qui tourne, points qui augmentent, cycle de 3 formes.',
+    'Si la règle ne saute pas aux yeux, compare le 1er et le 3e cube pour voir le pas sur deux étapes.',
+    'Élimine dès qu\'une face est fausse : souvent, une seule face sépare deux propositions.']],
+  ['CSO', 'Anglais', [
+    'since + point de départ (since 2019) ; for + durée (for three years).',
+    'Present perfect (have + participe) quand il y a un lien avec le présent ; prétérit avec un moment terminé (yesterday, last year, ago).',
+    'Conditionnels : If + présent → will ; If + prétérit → would ; If + had + participe → would have + participe.',
+    'Suivis de -ing : enjoy, avoid, finish, mind, suggest, keep, consider. Suivis de to : want, decide, hope, plan, agree, refuse, promise.',
+    'in + mois, année, saison ; on + jour, date ; at + heure, night.',
+    'much + indénombrable (fuel, time, advice, information) ; many + pluriel.',
+    'a ou an selon le son : an hour, an officer ; a university, a European.',
+    'Lis la phrase entière : un mot-clé (since, yesterday, if, already) donne presque toujours la réponse.']],
+  ['Tours', 'Orientation spatiale', [
+    'Ordre de lecture : compas (cap), puis inclinaison, puis assiette.',
+    'Cap : nord = l\'appareil s\'éloigne de toi ; sud = il vient vers toi ; est = vers la droite ; ouest = vers la gauche.',
+    'Horizon artificiel : si l\'horizon monte à droite, l\'appareil penche à droite. Plus de bleu = nez en haut.',
+    'Le cap élimine en général 3 images ; l\'inclinaison départage les 2 dernières.',
+    'Vérifie un critère à la fois au lieu d\'essayer de « voir » l\'image en entier.']],
+  ['Tours', 'Différences', [
+    'Balayage toujours dans le même ordre : nez, vitres, porte, train, queue (rotor ou Fenestron), stabilisateur, antenne, mât.',
+    'Compare chaque proposition au modèle, jamais les propositions entre elles.',
+    'Avant de choisir « aucun identique », revérifie la proposition qui te semblait la plus proche.']],
+  ['Tours', 'Mémorisation', [
+    'Commence par les formes faciles : sécurise 8 à 10 associations avant de t\'attaquer aux autres.',
+    'Relie chaque forme à une image ou une petite histoire avec le nom.',
+    'Répète mentalement les associations par groupes de 3 ou 4 pendant les 4 minutes.',
+    'À la restitution, réponds à tout : sans point négatif, une réponse au hasard ne coûte rien.']],
+  ['Tours', 'Identification et culture aéro', [
+    'Pour chaque hélicoptère, retiens : nombre de pales, type d\'anticouple (rotor, Fenestron, coaxial, tandem), train (patins ou roues), place de l\'équipage.',
+    'Cherche chaque nom en photo sous plusieurs angles et repère deux signes distinctifs.',
+    'Fiches ALAT : 5 fiches par jour, en récitant le verso avant de l\'ouvrir.',
+    'Révise aussi l\'armement (canon de 30 mm, HOT, Mistral, Hellfire) et les grands noms de l\'aviation.']],
+  ['Simu', 'Simulateur SCM', [
+    'De petites corrections fréquentes plutôt que de grands coups de manche : tu évites de dépasser le centre.',
+    'Balaie en permanence les trois indicateurs (bleu, vert, rouge), sans fixer le plus difficile.',
+    'Compte les formes à voix basse, ou avec des lettres (A, B, C…), dès qu\'elles apparaissent.',
+    'Jour 2 : garde les pouces près des boutons. Répète la suite de nombres à chaque nouveau nombre (« 4… 4, 1… 4, 1, 9 »).',
+    'Si tout arrive en même temps, réponds d\'abord au son (fenêtre courte), puis recentre.',
+    'Après chaque série, résume en une phrase ce qui a coincé et change une seule chose : la progression est observée.',
+    'Dors bien la veille et évite l\'excès de café.']],
+  ['Général', 'Entretiens', [
+    'Pour chaque exemple, utilise la méthode STAR : Situation, Tâche, Action, Résultat.',
+    'Reste cohérent avec ta lettre, ton entretien du CSO et tes questionnaires de personnalité.',
+    'Connais le nom du CEMA et du CEMAT au moment de ton passage, et suis l\'actualité défense chaque semaine.',
+    'Chronomètre ta présentation de 5 minutes et répète-la à voix haute.']],
+  ['Général', 'Le jour J', [
+    'Arrive en avance avec ta pièce d\'identité et ta convocation, sans couteau (contrôle à l\'entrée).',
+    'Dors bien les nuits précédentes et mange léger avant le simulateur.',
+    'Écoute chaque briefing jusqu\'au bout et profite de l\'essai pour poser tes questions.',
+    'Entre deux épreuves, ne ressasse pas la précédente : chaque test est noté à part.']]
+];
+const WEEK = [['Lundi', 'Calcul mental + codage + attention (express)'], ['Mardi', 'Verbal + anglais (express)'], ['Mercredi', 'Rotation + suites de cubes'], ['Jeudi', 'Maths SECMA + orientation'], ['Vendredi', 'Mémorisation + différences + 5 fiches ALAT'], ['Samedi', 'Un test complet en conditions réelles'], ['Dimanche', 'Simulateur (série express) + revoir ses erreurs de la semaine']];
+const TechF = { g: 'Tout' };
+Act.techg = t => { TechF.g = t.dataset.v; App.refresh(); };
+Bilan.tech = () => {
+  const groups = ['Tout', 'Général', 'CSO', 'Tours', 'Simu'], list = TechF.g === 'Tout' ? TECH : TECH.filter(x => x[0] === TechF.g);
+  return `<div class="card week"><span class="eyebrow">Planning type · 10 à 15 min par jour</span><ul>${WEEK.map(([d, w]) => `<li><b>${d}</b><span>${w}</span></li>`).join('')}</ul></div>
+    <div class="seg wrap" role="group" aria-label="Filtrer les techniques">${groups.map(g => `<button data-act="techg" data-v="${g}" aria-pressed="${TechF.g === g}">${g}</button>`).join('')}</div>
+    <div class="techs">${list.map(([g, t, tips]) => `<details class="tech"><summary><span class="tag">${g}</span><b>${esc(t)}</b></summary><ul class="tips">${tips.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>`).join('')}</div>`;
 };
 
 /* ---------------- Démarrage ---------------- */
