@@ -148,6 +148,18 @@ h3.sec span { font: 500 13px var(--body); text-transform: none; letter-spacing: 
 .seg button[aria-pressed="true"] { background: var(--surface-2); color: var(--fg); box-shadow: inset 0 -2px 0 var(--accent); }
 .seg.wrap { flex-wrap: wrap; } .seg.wrap button { flex: 1 1 auto; }
 .seg.full { position: sticky; top: -16px; z-index: 2; }
+.seg.full button { padding: 8px 2px; font-size: 13px; }
+.week ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.week li { display: grid; grid-template-columns: 78px 1fr; gap: 8px; font-size: 14px; }
+.week li b { font-weight: 600; color: var(--accent); }
+.techs { display: flex; flex-direction: column; gap: 8px; }
+.tech { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.tech summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; gap: 2px; position: relative; padding-right: 24px; }
+.tech summary::-webkit-details-marker { display: none; }
+.tech summary::after { content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font: 700 18px/1 var(--mono); color: var(--accent); }
+.tech[open] summary::after { content: "–"; }
+.tech summary b { font: 700 18px var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.tech .tips { margin-top: 10px; font-size: 15px; }
 .toggle { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
 .toggle input { width: 20px; height: 20px; accent-color: var(--accent); }
 .settings { display: flex; flex-direction: column; gap: 8px; }
@@ -423,6 +435,7 @@ h2.big { font-size: 40px; text-transform: uppercase; }
 <script src="data.js"></script>
 <script src="core.js"></script>
 <script src="gen.js"></script>
+<script src="gen-plus.js"></script>
 <script src="sim.js"></script>
 <script src="views.js"></script>
 <script>
