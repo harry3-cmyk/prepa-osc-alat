@@ -1,6 +1,6 @@
 /* Service worker : l'appli charge toujours la dernière version en ligne et s'ouvre quand même sans réseau. */
-const V = 'prepa-alat-20261031233124';
-const SHELL = ['./', 'index.html', 'data.js', 'core.js', 'gen.js', 'sim.js', 'views.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
+const V = 'prepa-alat-20261101091325';
+const SHELL = ['./', 'index.html', 'data.js', 'core.js', 'gen.js', 'gen-plus.js', 'sim.js', 'views.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));
