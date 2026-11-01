@@ -133,6 +133,25 @@ const Store = {
   }
 };
 
+/* ---------------- Questions déjà posées : on ne les repose pas ---------------- */
+const Fresh = {
+  KEY: 'oscp-seen-v1', mem: null, h: 0,
+  load() { if (!this.mem) { try { this.mem = JSON.parse(lsGet(this.KEY) || '{}') || {}; } catch { this.mem = {}; } } return this.mem; },
+  sig(q) {
+    const s = (q.p + '|' + (q.ch[q.a] || '')).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ');
+    let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(36);
+  },
+  gen(id, fn) {
+    const m = this.load(), list = m[id] || (m[id] = []), seen = new Set(list);
+    let q = fn(), k = this.sig(q);
+    for (let i = 0; i < 30 && seen.has(k); i++) { q = fn(); k = this.sig(q); }
+    list.push(k); if (list.length > 2000) list.splice(0, list.length - 2000);
+    clearTimeout(this.h); this.h = setTimeout(() => lsSet(this.KEY, JSON.stringify(this.mem)), 400);
+    return q;
+  }
+};
+
 /* ---------------- Statistiques ---------------- */
 const Stats = {
   of(id) {
@@ -234,7 +253,7 @@ const Runner = {
   renderQ() {
     const s = this.s;
     if (s.i >= s.n) return this.finish(false);
-    if (!s.qs[s.i]) s.qs[s.i] = s.T.gen(s.ctx, s.i, s.n);
+    if (!s.qs[s.i]) s.qs[s.i] = s.T.fresh ? Fresh.gen(s.id, () => s.T.gen(s.ctx, s.i, s.n)) : s.T.gen(s.ctx, s.i, s.n);
     const q = s.qs[s.i], keys = !s.T.noKeys;
     this.el.innerHTML = `<div class="rn">${this.header(s.T.name, MODE_LABEL[s.mode])}
       <div class="rn-prog"><i style="width:${(s.i / s.n * 100).toFixed(1)}%"></i></div>
